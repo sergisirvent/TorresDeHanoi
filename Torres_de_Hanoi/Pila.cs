@@ -35,46 +35,36 @@ namespace Torres_de_Hanoi
 
         public void push(Disco d)
         {
-            if(Size == 0 )
-            {
-
-                Elementos.Add(d);
-                Size++;
-                Top = d.Valor;
-
-            }else
-            {
-                if (d.Valor < Top)
-                {
-                    Elementos.Add(d);
-                    Size++;
-                    Top = d.Valor;
-                }
-                else
-                {
-                    Console.WriteLine("No es posible añadir el disco con valor " + d.Valor);
-                }
-                
-            }
-            
-            
-
+            Elementos.Add(d);
+            Size++;
+            Top = d.Valor;
         }
 
         public Disco pop()
         {
 
-            Disco extraido =  Elementos[Size-1];
-            Elementos.RemoveAt(Size - 1);
-            
-            Size--;
+            Disco extraido = null;
+
             if(Size == 0)
             {
                 Top = 0;
             }
+
             else
             {
-                Top = Elementos[Size - 1].Valor;
+                
+                extraido = Elementos[Size - 1];
+                Elementos.RemoveAt(Size - 1);
+                if (Size == 0)
+                {
+                    Top = 0;
+                }
+                else
+                {
+                    Top = Elementos[Size - 1].Valor;
+                    Size--;
+                }
+                
             }
 
             return extraido;
