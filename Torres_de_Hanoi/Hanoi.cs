@@ -12,19 +12,44 @@ namespace Torres_de_Hanoi
         /*TODO: Implementar métodos*/
         public void mover_disco(Pila a, Pila b)
         {
-            int inicio = a.Top;
-            int final = b.Top;
-            if (inicio < final)
+            //por si hay una pila vacia
+            if (a.isEmpty() && b.Top != 0)
             {
-                
-                a.push(b.pop());
-                
+                Disco discoMovido = b.pop();
+                a.push(discoMovido);
+
+                //Console.WriteLine("discoMovido" + discoMovido.Valor);
+                Console.WriteLine("MOVIMIENTO -->Disco movido con valor --> " + discoMovido.Valor);
 
 
-            }else if (inicio < final)
+
+            }
+            else if (!a.isEmpty() && b.isEmpty())
             {
-                b.push(a.pop());
-                
+                Disco discoMovido = a.pop();
+                b.push(discoMovido);
+                Console.WriteLine("MOVIMIENTO -->Disco movido con valor --> " + discoMovido.Valor);
+
+            }
+            else 
+            {
+                //por si estan las dos llenas se realiza una comparación
+                int inicio = a.Top;
+                int final = b.Top;
+                if (inicio > final)
+                {
+                    //de b a a
+                    Disco discoMovido = b.pop();
+                    a.push(discoMovido);
+                   Console.WriteLine("MOVIMIENTO -->Disco movido con valor --> " + discoMovido.Valor);
+                }
+                else
+                {
+                    //de a a b
+                    Disco discoMovido = a.pop();
+                    b.push(discoMovido);
+                    Console.WriteLine("MOVIMIENTO -->Disco movido con valor --> " + discoMovido.Valor);
+                }
             }
             
 
@@ -41,8 +66,12 @@ namespace Torres_de_Hanoi
             {
                 while (noSolucionado) 
                 {
+                    //Console.WriteLine("Inicio bucle   ");
+                    //Console.WriteLine("Size fin-->  " +fin.Size);
+                   // Console.WriteLine(noSolucionado);
                     mover_disco(ini,fin);
                     numero_movimientos++;
+                    
                     if(fin.Size == n)
                     {
                         noSolucionado = false;

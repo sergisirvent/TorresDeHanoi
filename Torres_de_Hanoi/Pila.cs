@@ -8,7 +8,7 @@ namespace Torres_de_Hanoi
 {
     class Pila
     {
-        public int Size { get; set; }
+        public int Size { get { return Elementos.Count; }}
 
         /* TODO: Elegir tipo de Top
         public int Top { get; set; }
@@ -27,7 +27,7 @@ namespace Torres_de_Hanoi
         /* TODO: Implementar métodos */
         public Pila()
         {
-            Size = 0;
+            
             Top = 0;
             Elementos = new List<Disco>();
             
@@ -36,8 +36,10 @@ namespace Torres_de_Hanoi
         public void push(Disco d)
         {
             Elementos.Add(d);
-            Size++;
+            
             Top = d.Valor;
+            
+            
         }
 
         public Disco pop()
@@ -62,7 +64,7 @@ namespace Torres_de_Hanoi
                 else
                 {
                     Top = Elementos[Size - 1].Valor;
-                    Size--;
+                    
                 }
                 
             }

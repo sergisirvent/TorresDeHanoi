@@ -11,31 +11,46 @@ namespace Torres_de_Hanoi
     {
         static void Main(string[] args)
         {
-            Pila pila = new Pila();
-
-            Disco disco1 = new Disco();
-            disco1.Valor = 1;
-
-            Disco disco2 = new Disco();
-            disco2.Valor = 2;
-
-            Disco disco3 = new Disco();
-            disco3.Valor = 3;
-
-            pila.push(disco3);
-            pila.push(disco2);
-            pila.push(disco1);
-
+            //creamos las pilas
+            Pila pilaInicial = new Pila();
             Pila pilaAux = new Pila();
             Pila pilaFinal = new Pila();
-            Hanoi objetoHanoi = new Hanoi();
-            int resultado = objetoHanoi.iterativo(3, pila, pilaAux, pilaFinal);
 
-            //Console.WriteLine("Valor del disco extraido " +popDisco.Valor);
-            // Keep the console window open in debug mode.
-            Console.WriteLine("RESULTADO => " + resultado);
-            Console.WriteLine("Press any key to exit.");
+            //Creamos los discos con sus valores 
+            Disco discoPequenyo = new Disco(1);
             
+            Disco discoMediano = new Disco(2);
+            
+            Disco discoGrande = new Disco(3);
+            
+            
+            //Los metemos en la pila inicial
+            pilaInicial.push(discoGrande);
+            pilaInicial.push(discoMediano);
+            pilaInicial.push(discoPequenyo);
+            
+
+            //Accedemos al objeto hanoi y a sus metodos 
+            Hanoi objetoHanoi = new Hanoi();
+            int resultado = objetoHanoi.iterativo(3, pilaInicial, pilaFinal, pilaAux);
+            Console.WriteLine("NUMERO DE MOVIMIENTOS FINALES == " + resultado);
+            if(resultado == 7)
+            {
+                Console.WriteLine("EL PROGRAMA FUNCIONA CORRECTAMENTE");
+            }
+            //objetoHanoi.mover_disco(pilaInicial, pilaAux);
+            //objetoHanoi.mover_disco(pilaInicial, pilaFinal);
+            // objetoHanoi.mover_disco(pilaInicial, pilaFinal);
+             //Console.WriteLine("Top de Inicial" + pilaInicial.Top);
+            //Console.WriteLine("Top de Aux" + pilaAux.Top);
+            //Console.WriteLine("Top de Final" + pilaFinal.Top);
+           // Console.WriteLine("Size de Inicio" + pilaInicial.Size);
+            //Console.WriteLine("Size de AUx" + pilaAux.Size);
+            //Console.WriteLine("Size de Final" + pilaFinal.Size);
+
+
+
+
             Console.ReadKey();
         }
     }

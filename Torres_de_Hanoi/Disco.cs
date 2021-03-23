@@ -15,5 +15,11 @@ namespace Torres_de_Hanoi
         */
         public int Valor { get; set; }
 
+        //constructor
+        public Disco (int valor)
+        {
+            Valor = valor;
+        }
+
     }
 }
