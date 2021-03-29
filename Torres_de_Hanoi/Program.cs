@@ -35,21 +35,6 @@ namespace Torres_de_Hanoi
             pilaInicial.push(discoGrande);
             pilaInicial.push(discoMediano);
             pilaInicial.push(discoPequenyo);
-            
-
-            
-            Console.WriteLine("----------------------");
-            Console.WriteLine("MOVIMIENTOS ITERATIVOS");
-            Console.WriteLine("----------------------");
-
-            int iterativoResultado = objetoHanoi.iterativo(3, pilaInicial, pilaFinal, pilaAux);
-            Console.WriteLine("RESULTADO ITERATIVO --> " + iterativoResultado);
-            
-            if(iterativoResultado == 7)
-            {
-                Console.WriteLine("EL PROGRAMA PARECE QUE FUNCIONA ");
-            }
-
 
             //--------------------------------------------------------------------------------------
             //Creamos los elementos para el recursivo
@@ -71,17 +56,48 @@ namespace Torres_de_Hanoi
             pilaRecursivaInicial.push(discoRecursivoGrande);
             pilaRecursivaInicial.push(discoRecursivoMediano);
             pilaRecursivaInicial.push(discoRecursivoPequenyo);
-            Console.WriteLine("----------------------");
-            Console.WriteLine("MOVIMIENTOS RECURSIVOS");
-            Console.WriteLine("----------------------");
 
-            int recursivoResultado = objetoHanoi.recursivo(3, pilaRecursivaInicial, pilaRecursivaFinal, pilaRecursivaAux);
+            Console.WriteLine("Seleccione el algoritmo que desea utilizar:" + Environment.NewLine);
+            Console.WriteLine("1 para iterativo");
+            Console.WriteLine("2 para recursivo");
 
-            Console.WriteLine("RESULTADO RECURSIVO --> " + recursivoResultado);
-            if (recursivoResultado == 7)
+            //procesamos el numero que introduce el usuario
+            String numeroIntroducido;
+            numeroIntroducido = Console.ReadLine();
+            if(Int32.Parse(numeroIntroducido) == 1)
             {
-                Console.WriteLine("EL PROGRAMA PARECE QUE FUNCIONA ");
+                Console.WriteLine("----------------------");
+                Console.WriteLine("MOVIMIENTOS ITERATIVOS");
+                Console.WriteLine("----------------------");
+
+                int iterativoResultado = objetoHanoi.iterativo(3, pilaInicial, pilaFinal, pilaAux);
+                Console.WriteLine("RESULTADO ITERATIVO --> " + iterativoResultado);
+
+                if (iterativoResultado == 7)
+                {
+                    Console.WriteLine("EL PROGRAMA PARECE QUE FUNCIONA ");
+                }
             }
+            else
+            {
+                Console.WriteLine("----------------------");
+                Console.WriteLine("MOVIMIENTOS RECURSIVOS");
+                Console.WriteLine("----------------------");
+
+                int recursivoResultado = objetoHanoi.recursivo(3, pilaRecursivaInicial, pilaRecursivaFinal, pilaRecursivaAux);
+
+                Console.WriteLine("RESULTADO RECURSIVO --> " + recursivoResultado);
+                if (recursivoResultado == 7)
+                {
+                    Console.WriteLine("EL PROGRAMA PARECE QUE FUNCIONA ");
+                }
+            }
+
+            
+
+
+            
+            
 
 
             //objetoHanoi.mover_disco(pilaInicial, pilaAux);
@@ -89,7 +105,7 @@ namespace Torres_de_Hanoi
             // objetoHanoi.mover_disco(pilaInicial, pilaFinal);
 
 
-
+            
 
 
             Console.ReadKey();
