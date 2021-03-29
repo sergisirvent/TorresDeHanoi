@@ -101,14 +101,14 @@ namespace Torres_de_Hanoi
             {
                 while (noSolucionado)
                 {
-                    mover_disco(ini, fin);
+                    mover_disco(ini, aux);
                     numero_movimientos++;
                     if (fin.Size == n)
                     {
                         noSolucionado = false;
                         break;
                     }
-                    mover_disco(ini, aux);
+                    mover_disco(ini, fin);
                     numero_movimientos++;
                     if (fin.Size == n)
                     {

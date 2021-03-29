@@ -29,9 +29,13 @@ namespace Torres_de_Hanoi
             Disco discoMediano = new Disco(2);
             
             Disco discoGrande = new Disco(3);
-            
-            
+
+            Disco discoExtra = new Disco(4);
+
+
+
             //Los metemos en la pila inicial
+            pilaInicial.push(discoExtra);
             pilaInicial.push(discoGrande);
             pilaInicial.push(discoMediano);
             pilaInicial.push(discoPequenyo);
@@ -70,7 +74,7 @@ namespace Torres_de_Hanoi
                 Console.WriteLine("MOVIMIENTOS ITERATIVOS");
                 Console.WriteLine("----------------------");
 
-                int iterativoResultado = objetoHanoi.iterativo(3, pilaInicial, pilaFinal, pilaAux);
+                int iterativoResultado = objetoHanoi.iterativo(4, pilaInicial, pilaFinal, pilaAux);
                 Console.WriteLine("RESULTADO ITERATIVO --> " + iterativoResultado);
 
                 if (iterativoResultado == 7)
